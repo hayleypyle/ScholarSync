@@ -6,10 +6,11 @@ export default function Welcome() {
     return (
         <div>
         <h1>Login</h1>
-        <label>Username:</label>
+        <label>Email:</label>
         <input type="text"></input>
         <label>Password:</label>
         <input type="text"></input>
+        <button>Sign In</button>
 
         <p>Don't have an account?</p>
         <Link to ="/register">Register</Link>
