@@ -4,11 +4,19 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    background-color:#1C6E8C;
     height:100vh;
+    
+}
+
+.login-container{
+    background-color:white;
+    color:#274156;
+
+}
+
+.register-container{
+    background-color:#1C6E8C;
     color:white;
-
-
 }
 
 .form-container{
@@ -19,13 +27,21 @@
     width:50vw;
     min-height:40vh;
     border-radius:5px;
-    background-color:white;
-    color:#274156;
     align-items:center;
     padding:10px;
 
 }
 
+#login{
+    background-color:#1C6E8C;
+    color:white;
+}
+
+#register{
+    background-color:white;
+    color:#274156;
+
+}
 .login-input input[type="email"], .login-input input[type="password"],
 .login-input{
     font-size:24px;
@@ -42,7 +58,21 @@
 .form-input input[type="text"], .form-input input[type="password"], .form-input input[type="email"]
 {
     width:200px;
+    margin-left:5px;
 }
+
+#register {
+    margin:5px;
+}
+
+#tandc{
+    margin:10px;
+    width:70%;
+    font-size:14px;
+    color:#1C6E8C;
+    text-align: center;
+}
+
 
 label{
     font-weight: bold;
@@ -51,4 +81,12 @@ label{
 button{
     width:25vw;
 
+}
+
+.reg-button{
+    background-color:#C6ECAE;
+    color:black;
+    text-decoration: none;
+    padding:10px;
+    border-radius: 5%;
 }

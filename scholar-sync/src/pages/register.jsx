@@ -9,46 +9,50 @@ export default function Register() {
         <h1>Sign Up</h1>
         
         <form action="">
-        <div className="form-container">
-            <div className="form-input">
-            <label>First Name:</label>
+        <div className="form-container" id="register">
+            <div className="form-input" id="register">
+            <label>First Name</label>
             <input type="text"></input>
             </div>
 
-            <div className="form-input">
-            <label>Last Name:</label>
+            <div className="form-input" id="register">
+            <label>Last Name</label>
             <input type="text"></input>
             </div>
 
-            <div className="form-input">
-            <label>Email:</label>
+            <div className="form-input" id="register">
+            <label>Email</label>
             <input type="email"></input>
             </div>
 
-            <div className="form-input">
-            <label>Username:</label>
+            <div className="form-input" id="register">
+            <label>Username</label>
             <input type="text"></input>
             </div>
 
-            <div className="form-input">
-            <label>Password:</label>
+            <p>Password must be between 7 to 15 characters and contain at least one number and at least one special character</p>
+
+            <div className="form-input" id="register">
+            <label>Password</label>
             <input type="password"></input>
             </div>
         
-            <div className="form-input">
-            <label>Confirm Password:</label>
+            <div className="form-input" id="register">
+            <label>Confirm Password</label>
             <input type="password"></input>
             </div>
 
             <button>Sign Up</button>
-            <p>By clicking sign up, you agree to our terms and conditions and privacy statement. </p>
+            <div id="tandc">
+            By clicking sign up, you agree to our terms and conditions and privacy statement.
+            </div>
         </div>
         </form>
         
         
 
         <p>Already have an account?</p>
-        <Link to ="/">Login</Link>
+        <Link to ="/" className="reg-button">Login</Link>
         </div>
     )
 }
