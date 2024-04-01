@@ -8,6 +8,11 @@ import axios from 'axios'
 
 export default function Login() {
 
+    const [values, setValues]= useState({
+        email: '',
+        password: ''
+    })
+
     const navigate = useNavigate();
 
     const handleSubmit =(event) =>{
@@ -15,9 +20,17 @@ export default function Login() {
             console.log(values)
             axios.post("http://localhost:3000/login", values)
             .then(res =>{
-                navigate('/dashboard')
+                console.log("login response:", res.data)
+                if(res.data === "success"){
+                    console.log("login successful")
+                    navigate('/dashboard')
+                } else {
+                    console.log('login failed')
+                    alert("Login information is incorrect")
+                }
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.error("error during login", err)})
             
             
     }
@@ -30,13 +43,13 @@ export default function Login() {
         <div className="form-container" id="login">
             <div className="login-input">
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" ></input>
+            <input type="email" name="email"  onChange = {e=>setValues({...values, email: e.target.value})} required ></input>
             
             </div>
             
             <div className="login-input">
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" ></input>
+            <input type="password" name="password" onChange= {e => setValues({...values, password: e.target.value})} required></input>
             </div>
             
             <button type="submit">Sign In</button>

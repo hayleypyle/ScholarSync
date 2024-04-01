@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 
 const app = express();
 app.use(cors());
@@ -33,3 +34,22 @@ app.post('/register',(req, res) =>{
         return res.json(data);
     })
 })
+app.post('/login',(req, res) =>{
+    const sql = "SELECT * FROM `login` WHERE (email = ? AND password = ?)";
+    const values = [
+        req.body.email,
+        req.body.password
+    ];
+
+    db.query(sql, values, (err, data)=> {
+        if(err){
+            return res.json("error");
+        }
+        if(data.length > 0){
+            return res.json("success")
+    
+        } else {
+            return res.json("failure")
+        }
+    })
+}) 
