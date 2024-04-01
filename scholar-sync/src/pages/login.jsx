@@ -1,40 +1,42 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";  
+import { Link, useNavigate } from "react-router-dom";  
 import './login.css'
-import Validation from '../js/LoginValidation'
+import axios from 'axios'
+
+
 
 
 export default function Login() {
-        const [values, setValues] = useState({
-            email: '',
-            password: '',
-        })
 
-        const [errors, setErrors] = useState({})
-        const inputChange =(event)=>{
-            setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
-        }
-        const handleSubmit =(event) => {
+    const navigate = useNavigate();
+
+    const handleSubmit =(event) =>{
             event.preventDefault();
-            setErrors(Validation(values));
-        }
-
+            console.log(values)
+            axios.post("http://localhost:3000/login", values)
+            .then(res =>{
+                navigate('/dashboard')
+            })
+            .catch(err => console.log(err))
+            
+            
+    }
+    
     return (
         <div className="login-container">
         <h1>Login</h1>
     
-        <form action="" onSubmit = {handleSubmit}>
+        <form action="" onSubmit={handleSubmit}>
         <div className="form-container" id="login">
             <div className="login-input">
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" onChange={inputChange}></input>
-            {errors.email && <span>{errors.email}</span>}
+            <input type="email" name="email" ></input>
+            
             </div>
             
             <div className="login-input">
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" onChange={inputChange}></input>
-            {errors.password && <span>{errors.password}</span>}
+            <input type="password" name="password" ></input>
             </div>
             
             <button type="submit">Sign In</button>
