@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom";  
 import './login.css'
 import axios from 'axios'
@@ -9,20 +9,26 @@ import axios from 'axios'
 export default function Login() {
 
     const [values, setValues]= useState({
-        email: '',
+        uname: '',
         password: ''
     })
+
+    const [user, setUser]= useState()
 
     const navigate = useNavigate();
 
     const handleSubmit =(event) =>{
             event.preventDefault();
+            
             console.log(values)
             axios.post("http://localhost:3000/login", values)
             .then(res =>{
                 console.log("login response:", res.data)
                 if(res.data === "success"){
                     console.log("login successful")
+                    setUser(res.data)
+                    localStorage.setItem('user', values.uname)
+                    console.log(res.data)
                     navigate('/dashboard')
                 } else {
                     console.log('login failed')
@@ -34,6 +40,18 @@ export default function Login() {
             
             
     }
+
+    useEffect(() =>{
+        const loggedInUser = localStorage.getItem('user')
+        if(loggedInUser){
+            const foundUser = JSON.parse(loggedInUser)
+            setUser(foundUser)
+        }
+    }, []);
+
+    // if (user){
+    //     return <div>{uname} is logged in</div>
+    // }
     
     return (
         <div className="login-container">
@@ -42,8 +60,8 @@ export default function Login() {
         <form action="" onSubmit={handleSubmit}>
         <div className="form-container" id="login">
             <div className="login-input">
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email"  onChange = {e=>setValues({...values, email: e.target.value})} required ></input>
+            <label htmlFor="uname">Username</label>
+            <input type="text" name="uname"  onChange = {e=>setValues({...values, uname: e.target.value})} required ></input>
             
             </div>
             

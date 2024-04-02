@@ -4,9 +4,28 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { useNavigate } from "react-router-dom";
+import {useState} from 'react';
+import './dashboard.css';
+import GeneralChat from './generalchat';
+
 
 
 function LeftNav() {
+    const [user, setUser] = useState();
+    const [values, setValues] = useState();
+
+    const navigate = useNavigate();
+
+    let username = localStorage.getItem('user') 
+
+    const handleLogout = () =>{
+        setUser(null);
+        setValues({});
+        localStorage.clear();
+        navigate('/')
+    }
+    
 return (
     <>
         <Navbar className="bg-body-tertiary">
@@ -15,7 +34,7 @@ return (
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-                Welcome username, <a href="#login">Log out</a>
+                Welcome, {username} <button className="reg-button" onClick={handleLogout}>Log Out</button>
             </Navbar.Text>
             
             </Navbar.Collapse>
@@ -47,7 +66,9 @@ return (
             </Col>
             <Col sm={9}>
             <Tab.Content>
-                <Tab.Pane eventKey="first">First tab content</Tab.Pane>
+                <Tab.Pane eventKey="first"> 
+                <GeneralChat></GeneralChat>
+                </Tab.Pane>
                 <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
                 <Tab.Pane eventKey="third">Third tab content</Tab.Pane>
                 <Tab.Pane eventKey="fourth">Fourth tab content</Tab.Pane>

@@ -35,9 +35,9 @@ app.post('/register',(req, res) =>{
     })
 })
 app.post('/login',(req, res) =>{
-    const sql = "SELECT * FROM `login` WHERE (email = ? AND password = ?)";
+    const sql = "SELECT * FROM `login` WHERE (uname = ? AND password = ?)";
     const values = [
-        req.body.email,
+        req.body.uname,
         req.body.password
     ];
 

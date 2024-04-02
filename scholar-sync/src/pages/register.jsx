@@ -15,8 +15,7 @@ export default function Register() {
         password: ''
     })
 
-    const [password, setPassword] = useState("")
-    const [passwordAgain, setPasswordAgain] = useState("")
+
     const navigate = useNavigate();
 
     const handleSubmit =(event) =>{
