@@ -7,30 +7,22 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react';
+import { useAuth } from '../js/AuthContext'
 import './dashboard.css';
 import GeneralChat from './generalchat';
 
 
 
 function LeftNav() {
-    const [user, setUser] = useState();
-    const [values, setValues] = useState();
 
     const navigate = useNavigate();
+    const {user, logout} = useAuth();
 
-
-    const handleLogout = () =>{
-        // setUser(null);
-        // setValues({});
-        // localStorage.clear();
-        // navigate('/')
-        localStorage.removeItem('user');
-        navigate('/')
+    const handleLogout= () =>{
+        logout();
+        navigate('/');
     }
-    
-    let username = localStorage.getItem('user') 
 
-    
 return (
     <>
         <Navbar className="bg-body-tertiary">
@@ -39,7 +31,7 @@ return (
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-                Welcome, {username} <button className="logout-btn" onClick={handleLogout}>Log Out</button>
+                Welcome, {user} <button className="logout-btn" onClick={handleLogout}>Log Out</button>
             </Navbar.Text>
             
             </Navbar.Collapse>

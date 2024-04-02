@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";  
 
 
 export default function Answer() {
@@ -15,7 +16,7 @@ export default function Answer() {
         e.preventDefault();
         console.log(answer)
         setAnswer({ answer: ''})
-        navigate('/')
+        navigate('/question:id')
     }
 
 
@@ -27,6 +28,7 @@ export default function Answer() {
         <form onSubmit = {handleSubmit}>
             <input type="textarea" value={answer.answer} onChange = {e=>setAnswer({answer: e.target.value})}></input>
             <button type="submit">Answer Question</button>
+            <Link to="/question:id">Back to question</Link>
         </form>
         </div>
         </>

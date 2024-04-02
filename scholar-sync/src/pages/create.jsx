@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 export default function Create() {
@@ -27,6 +27,7 @@ export default function Create() {
         <form onSubmit = {handleSubmit}>
             <input type="text" value={question.question} onChange = {e=>setQuestion({question: e.target.value})}></input>
             <button type="submit">Post Question</button>
+            <Link to ="/">Back to dashboard</Link>
         </form>
         </div>
         </>
