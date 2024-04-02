@@ -1,14 +1,31 @@
 import React from 'react'
-import LeftNav from './navbar'
+import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
+
 
 export default function Create() {
+
+    const [question, setQuestion]=useState({
+        question: ''
+    })
+
+    const navigate = useNavigate();
+
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(question)
+        setQuestion({ question: ''})
+        navigate('/')
+    }
+
+
     return (
         <>
         
         <div>
         <h2>Create Question</h2>
-        <form>
-            <input type="text"></input>
+        <form onSubmit = {handleSubmit}>
+            <input type="text" value={question.question} onChange = {e=>setQuestion({question: e.target.value})}></input>
             <button type="submit">Post Question</button>
         </form>
         </div>

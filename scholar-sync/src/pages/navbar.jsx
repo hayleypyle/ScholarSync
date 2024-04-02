@@ -1,3 +1,4 @@
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
@@ -17,14 +18,18 @@ function LeftNav() {
 
     const navigate = useNavigate();
 
-    let username = localStorage.getItem('user') 
 
     const handleLogout = () =>{
-        setUser(null);
-        setValues({});
-        localStorage.clear();
+        // setUser(null);
+        // setValues({});
+        // localStorage.clear();
+        // navigate('/')
+        localStorage.removeItem('user');
         navigate('/')
     }
+    
+    let username = localStorage.getItem('user') 
+
     
 return (
     <>
