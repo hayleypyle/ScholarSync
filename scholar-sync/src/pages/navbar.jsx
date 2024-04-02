@@ -34,7 +34,7 @@ return (
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-                Welcome, {username} <button className="reg-button" onClick={handleLogout}>Log Out</button>
+                Welcome, {username} <button className="logout-btn" onClick={handleLogout}>Log Out</button>
             </Navbar.Text>
             
             </Navbar.Collapse>

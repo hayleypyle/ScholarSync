@@ -48,10 +48,6 @@ export default function Login() {
             setUser(foundUser)
         }
     }, []);
-
-    // if (user){
-    //     return <div>{uname} is logged in</div>
-    // }
     
     return (
         <div className="login-container">

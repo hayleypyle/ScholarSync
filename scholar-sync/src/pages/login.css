@@ -42,7 +42,7 @@
     color:#274156;
 
 }
-.login-input input[type="email"], .login-input input[type="password"],
+.login-input input[type="text"], .login-input input[type="password"],
 .login-input{
     font-size:24px;
     padding:5px;

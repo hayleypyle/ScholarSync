@@ -2,3 +2,9 @@ body{
     font-family: 'Didact Gothic', sans-serif;
     margin:0;
 }
+
+.logout-btn{
+    font-size:12px;
+    width:50%;
+    border-style: none;
+}
