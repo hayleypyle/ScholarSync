@@ -1,14 +1,27 @@
 import React from 'react'
 import {useState} from 'react'
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";  
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 
 export default function Answer() {
+    const {id} = useParams();
 
     const [answer, setAnswer]=useState({
         answer: ''
     })
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/answer/${id}`)
+            .then((response) => {
+                console.log(response.data);
+                setValues(response.data[0]);
+                
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, [id]); 
+
 
     const navigate = useNavigate();
 

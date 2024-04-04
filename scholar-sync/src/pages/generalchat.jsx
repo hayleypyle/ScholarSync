@@ -1,22 +1,37 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
+import axios from 'axios'
+import './question.css'
+
 
 
 export default function GeneralChat() {
+    const [values, setValues] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/')
+            .then((response) => {
+                setValues(response.data);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []); 
+
     return (
-        <div>
+        <div className="question-display">
         <h2>General Chat</h2>
         <Link to="/create:id"><button>New Question</button></Link>
         
         <div className="question-container">
-            <div className="question-wrapper">
-            <Link to ="/question:id">Question 1</Link> posted by user at date. 2 Answers
-            </div>
-            <div className="question-wrapper">
-            <Link>Question 2</Link> posted by user at date. 3 Answers
-            </div>
+            {values.map((value) =>(
+                <div key={value.id} className="question-wrapper">
+                    <Link to={`/question/${value.id}`}>{value.title}</Link>
+                    <h6>{value.title} posted by {value.uname}</h6>
+                </div>
 
-            
+            ))}
 
         </div>
         </div>

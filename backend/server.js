@@ -53,3 +53,52 @@ app.post('/login',(req, res) =>{
         }
     })
 }) 
+
+app.post('/create',(req, res) =>{
+    const sql = "INSERT INTO general_chat (title, content, uname) VALUES (?)";
+    const values = [
+        req.body.title,
+        req.body.content,
+        req.body.uname,
+    ]
+    db.query(sql, [values], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        return res.json(data);
+    })
+})
+
+app.get('/', (req,res)=>{
+    const sql = "SELECT * FROM general_chat"
+    db.query(sql, (err, rows)=>{
+        if(err) res.json({Message: err})
+        return res.json(rows)
+    })
+
+
+})
+
+
+app.get('/question/:id', (req,res)=>{
+    const id = req.params.id;
+    const sql = "SELECT title, content, uname FROM general_chat WHERE id= ?";
+    db.query(sql, [id], (err, rows)=>{
+        if(err) res.json({Message: err})
+        res.json(rows)
+    })
+
+
+})
+
+
+app.get('/answer/:id', (req,res)=>{
+    const id = req.params.id;
+    const sql = "SELECT title, content, uname FROM general_chat WHERE id= ?";
+    db.query(sql, [id], (err, rows)=>{
+        if(err) res.json({Message: err})
+        res.json(rows)
+    })
+
+
+})

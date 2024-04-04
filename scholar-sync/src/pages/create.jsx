@@ -1,21 +1,33 @@
 import React from 'react'
 import {useState} from 'react'
 import { useNavigate, Link } from "react-router-dom";
+import axios from 'axios';
+import { useAuth } from '../js/AuthContext'
+
 
 
 export default function Create() {
 
-    const [question, setQuestion]=useState({
-        question: ''
+    const {user} = useAuth();
+
+    const [values, setValues]= useState({
+        title: '',
+        content: '',
+        uname: user,
     })
 
     const navigate = useNavigate();
 
-    function handleSubmit(e){
-        e.preventDefault();
-        console.log(question)
-        setQuestion({ question: ''})
-        navigate('/')
+
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        
+        console.log(values)
+        axios.post("http://localhost:3000/create", values)
+            .then(res =>{
+                navigate('/')
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -24,9 +36,12 @@ export default function Create() {
         
         <div>
         <h2>Create Question</h2>
-        <form onSubmit = {handleSubmit}>
-            <input type="text" value={question.question} onChange = {e=>setQuestion({question: e.target.value})}></input>
-            <button type="submit">Post Question</button>
+        <form action="" onSubmit = {handleSubmit}>
+            <label required>Title:</label>
+            <input type="text" onChange = {e=>setValues({...values, title: e.target.value})} required></input>
+            <label>Text (optional):</label>
+            <input type="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></input>
+            <button type="submit">Post</button>
             <Link to ="/">Back to dashboard</Link>
         </form>
         </div>
