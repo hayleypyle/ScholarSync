@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './question.css';
+import './css/question.css';
 import { useAuth } from '../js/AuthContext';
+
 
 export default function Question() {
     const { id } = useParams();
     const { user } = useAuth();
-    const [values, setValues] = useState(null); // Initialize as null
+    const [values, setValues] = useState(null);
 
     useEffect(() => {
         axios.get(`http://localhost:3000/question/${id}`)

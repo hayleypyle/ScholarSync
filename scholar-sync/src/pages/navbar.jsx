@@ -8,8 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react';
 import { useAuth } from '../js/AuthContext'
-import './dashboard.css';
-import GeneralChat from './generalchat';
+import './css/dashboard.css';
+import GeneralChat from './topics/generalchat';
 
 
 

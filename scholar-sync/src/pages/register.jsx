@@ -2,7 +2,7 @@ import React, { useState, } from 'react'
 import PasswordChecklist from 'react-password-checklist'
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
-import './login.css'
+import './css/login.css'
 
 
 

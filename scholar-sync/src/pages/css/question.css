@@ -54,3 +54,9 @@
     padding:4px;
 
 }
+
+.question-display{
+    background-color:lightgrey;
+    padding:5px;
+    height:100vh;
+}
