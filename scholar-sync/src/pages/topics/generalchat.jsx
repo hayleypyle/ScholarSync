@@ -7,10 +7,11 @@ import '../css/dashboard.css'
 
 export default function GeneralChat() {
     const [values, setValues] = useState([]);
+    const subcategory_id = '1';
 
 
     useEffect(() => {
-        axios.get('http://localhost:3000/')
+        axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
             .then((response) => {
                 setValues(response.data);
                 console.log(response.data)
@@ -25,7 +26,7 @@ export default function GeneralChat() {
     return (
         <div className="question-display">
         <h2>General Chat</h2>
-        <Link to="/create:id"><button>New Question</button></Link>
+        <Link to="/create/1"><button>New Question</button></Link>
         
         <div className="question-container">
             {values.map((value) =>(

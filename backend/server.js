@@ -71,8 +71,9 @@ app.post('/create',(req, res) =>{
 })
 
 app.get('/', (req,res)=>{
-    const sql = "SELECT ID, title, content, subcategory_id, created_at, uname FROM question_bank WHERE subcategory_id=1";
-    db.query(sql, (err, rows)=>{
+    const subcategory_id = req.query.subcategory_id;
+    const sql = "SELECT ID, title, content, subcategory_id, created_at, uname FROM question_bank WHERE subcategory_id=?";
+    db.query(sql, [subcategory_id], (err, rows)=>{
         if(err){
             res.json({Message: err})
             return

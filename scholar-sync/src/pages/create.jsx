@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../js/AuthContext'
 import './css/create.css'
@@ -10,12 +10,14 @@ import './css/create.css'
 export default function Create() {
 
     const {user} = useAuth();
-    const uname = user
+    const uname = user;
+    const {id} = useParams();
+    const subcategory_id = parseInt(id);
 
     const [values, setValues]= useState({
         title: '',
         content: '',
-        subcategory_id: '1',
+        subcategory_id: subcategory_id,
         uname: uname
     })
 
