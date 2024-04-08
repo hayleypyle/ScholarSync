@@ -72,14 +72,6 @@ app.post('/create',(req, res) =>{
 
 app.get('/', (req,res)=>{
     const sql = "SELECT ID, title, content, subcategory_id, created_at, uname FROM question_bank WHERE subcategory_id=1";
-    // const values = [
-    //     req.body.id,
-    //     req.body.title,
-    //     req.body.content,
-    //     req.body.subcategory_id,
-    //     req.body.created_at,
-    //     req.body.uname
-    // ]
     db.query(sql, (err, rows)=>{
         if(err){
             res.json({Message: err})
@@ -100,34 +92,48 @@ app.get('/', (req,res)=>{
 
 });
 
-
-app.get('/question/:id', (req,res)=>{
+app.get('/question/:id', (req, res) => {
     const id = req.params.id;
     const sql = "SELECT id, title, content, uname, created_at FROM question_bank WHERE id= ?";
-    // const values = [
-    //     req.body.id,
-    //     req.body.title,
-    //     req.body.content,
-    //     req.body.uname,
-    //     req.body.created_at,
+    db.query(sql, [id], (err, rows) => {
+        if (err) {
+            res.json({ Message: err });
+            return;
+        } 
+        const values = rows[0];
+        if (!values) {
+            res.json({ Message: "Question not found" });
+            return;
+        }
+
+        const answerSQL = "SELECT id, subcategory_id, question_id, answer, uname, created_at FROM answer_bank WHERE question_id = ?";
+        db.query(answerSQL, [id], (err, answerRows) => {
+            if (err) {
+                res.json({ Message: err });
+                return;
+            }
+            values.answers = answerRows;
+            res.json(values);
         
-    // ];
-    db.query(sql, [id], (err, rows)=>{
-        if(err) res.json({Message: err})
-        res.json(rows)
-    })
+        });
+    });
+});
 
 
-})
-
-
-app.get('/answer/:id', (req,res)=>{
-    const id = req.params.id;
-    const sql = "SELECT title, content, uname FROM question_bank WHERE id= ?";
-    db.query(sql, [id], (err, rows)=>{
-        if(err) res.json({Message: err})
-        res.json(rows)
-    })
+app.post('/answer', (req,res)=>{
+    const sql = "INSERT INTO answer_bank (subcategory_id, question_id, answer, uname) VALUES (?)";
+    const values = [
+        req.body.subcategory_id,
+        req.body.question_id,
+        req.body.answer,
+        req.body.uname
+    ];
+    db.query(sql, [values], (err, data)=> {
+        if(err){
+            return res.json("Error");
+        }
+        res.json(data);
+    }) 
 
 
 })

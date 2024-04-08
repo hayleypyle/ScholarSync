@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../js/AuthContext'
+import './create.css'
 
 
 
@@ -36,15 +37,26 @@ export default function Create() {
     return (
         <>
         
-        <div>
-        <h2>Create Question</h2>
+        <div className="create-container">
+        
         <form action="" onSubmit = {handleSubmit}>
-            <label required>Title:</label>
-            <input type="text" onChange = {e=>setValues({...values, title: e.target.value})} required></input>
-            <label>Text (optional):</label>
-            <input type="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></input>
+            <div className="create-question">
+            <h2>Create Question</h2>
+                <div>
+                <label>Title:</label>
+                <input type="text" className="title" onChange = {e=>setValues({...values, title: e.target.value})} required></input>
+                </div>
+            
+                <div>
+                <label>Text:</label>
+                <input type="textarea" className="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></input>
+                </div>
+            </div>
+
+            <div className="end-container">
             <button type="submit">Post</button>
-            <Link to ="/">Back to dashboard</Link>
+            <Link to ="/">Back to dashboard</Link></div>
+        
         </form>
         </div>
         </>

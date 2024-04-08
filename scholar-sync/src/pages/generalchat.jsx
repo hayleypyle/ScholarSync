@@ -7,12 +7,7 @@ import './question.css'
 
 export default function GeneralChat() {
     const [values, setValues] = useState([]);
-    const [question, setQuestion] = useState({
-        id: '',
-        title: '',
-        content: '',
-        subcategory_id: '1',
-});
+
 
     useEffect(() => {
         axios.get('http://localhost:3000/')
@@ -24,6 +19,8 @@ export default function GeneralChat() {
                 console.error('Error fetching data:', error);
             });
     }, []); 
+
+    
 
     return (
         <div className="question-display">

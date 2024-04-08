@@ -23,7 +23,7 @@
     border-radius: 0px 0px 5px 5px;
 }
 
-.answer-container{
+.answer{
     margin-top:5px;
     font-size:0.8rem;
     background-color:lightgrey;
@@ -32,13 +32,25 @@
     padding-left:5px;
 }
 
-#answer input[type="textarea"]{
-    height:200px;
-    width:300px;
-}
 
 .answer-btn{
     font-size:0.8rem;
     width:20%;
+
+}
+
+.answer-box{
+    font-size:0.8rem;
+    width:500px;
+    height:100px;
+}
+
+.post-answer{
+    padding-top:5px;
+}
+
+.post-answer-btn{
+    font-size:0.9rem;
+    padding:4px;
 
 }
