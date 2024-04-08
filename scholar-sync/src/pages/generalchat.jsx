@@ -7,6 +7,12 @@ import './question.css'
 
 export default function GeneralChat() {
     const [values, setValues] = useState([]);
+    const [question, setQuestion] = useState({
+        id: '',
+        title: '',
+        content: '',
+        subcategory_id: '1',
+});
 
     useEffect(() => {
         axios.get('http://localhost:3000/')
@@ -28,7 +34,7 @@ export default function GeneralChat() {
             {values.map((value) =>(
                 <div key={value.id} className="question-wrapper">
                     <Link to={`/question/${value.id}`}>{value.title}</Link>
-                    <h6>{value.title} posted by {value.uname}</h6>
+                    <h6>posted by {value.uname} on {value.created_at}</h6>
                 </div>
 
             ))}

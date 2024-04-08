@@ -5,6 +5,7 @@ import './question.css'
 
 export default function Question() {
     const {id} = useParams();
+    console.log(id)
     const [values, setValues] = useState([]);
     
 
@@ -12,7 +13,12 @@ export default function Question() {
         axios.get(`http://localhost:3000/question/${id}`)
             .then((response) => {
                 console.log(response.data);
-                setValues(response.data[0]);
+                if(response.data.length>0){
+                    setValues(response.data[0]);
+                } else {
+
+                }
+                
                 
             })
             .catch((error) => {
@@ -32,20 +38,20 @@ export default function Question() {
             <p>{values.content}</p>
         </div>
         <div className="question-stamp">
-            <p>posted by {values.uname} on date.</p>
-            </div>
+            <p>posted by {values.uname} on {values.created_at}.</p>
+        </div>
     
         
         <div className="answer-container">
-        <p>user on date:
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti corporis corrupti voluptas quas excepturi? Illo non similique exercitationem in natus.</p>
-        </p>
+        <p>user on date:</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti corporis corrupti voluptas quas excepturi? Illo non similique exercitationem in natus.</p>
+        
         </div>
         
         <div className="answer-container">
-        <p>user on date:
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti corporis corrupti voluptas quas excepturi? Illo non similique exercitationem in natus.</p>
-        </p>
+        <p>user on date:</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti corporis corrupti voluptas quas excepturi? Illo non similique exercitationem in natus.</p>
+    
         </div>
 
         <form>

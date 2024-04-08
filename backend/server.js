@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'users'
+    database: 'ScholarSync'
 })
 
 app.listen(3000, () =>{
@@ -19,7 +19,7 @@ app.listen(3000, () =>{
 })
 
 app.post('/register',(req, res) =>{
-    const sql = "INSERT INTO login (fname, lname, uname, email, password) VALUES (?)";
+    const sql = "INSERT INTO users (fname, lname, uname, email, password) VALUES (?)";
     const values = [
         req.body.fname,
         req.body.lname,
@@ -35,7 +35,7 @@ app.post('/register',(req, res) =>{
     })
 })
 app.post('/login',(req, res) =>{
-    const sql = "SELECT * FROM `login` WHERE (uname = ? AND password = ?)";
+    const sql = "SELECT * FROM `users` WHERE (uname = ? AND password = ?)";
     const values = [
         req.body.uname,
         req.body.password
@@ -55,11 +55,12 @@ app.post('/login',(req, res) =>{
 }) 
 
 app.post('/create',(req, res) =>{
-    const sql = "INSERT INTO general_chat (title, content, uname) VALUES (?)";
+    const sql = "INSERT INTO question_bank (title, content, subcategory_id, uname) VALUES (?)";
     const values = [
         req.body.title,
         req.body.content,
-        req.body.uname,
+        req.body.subcategory_id,
+        req.body.uname
     ]
     db.query(sql, [values], (err, data)=> {
         if(err){
@@ -70,19 +71,47 @@ app.post('/create',(req, res) =>{
 })
 
 app.get('/', (req,res)=>{
-    const sql = "SELECT * FROM general_chat"
+    const sql = "SELECT ID, title, content, subcategory_id, created_at, uname FROM question_bank WHERE subcategory_id=1";
+    // const values = [
+    //     req.body.id,
+    //     req.body.title,
+    //     req.body.content,
+    //     req.body.subcategory_id,
+    //     req.body.created_at,
+    //     req.body.uname
+    // ]
     db.query(sql, (err, rows)=>{
-        if(err) res.json({Message: err})
-        return res.json(rows)
-    })
+        if(err){
+            res.json({Message: err})
+            return
+
+        } 
+        const questions = rows.map(row => ({
+            id: row.ID,
+            title: row.title,
+            content: row.content,
+            subcategory_id: row.subcategory_id,
+            created_at: row.created_at,
+            uname: row.uname
+        }));
+        res.json(questions);
+    });
 
 
-})
+});
 
 
 app.get('/question/:id', (req,res)=>{
     const id = req.params.id;
-    const sql = "SELECT title, content, uname FROM general_chat WHERE id= ?";
+    const sql = "SELECT id, title, content, uname, created_at FROM question_bank WHERE id= ?";
+    // const values = [
+    //     req.body.id,
+    //     req.body.title,
+    //     req.body.content,
+    //     req.body.uname,
+    //     req.body.created_at,
+        
+    // ];
     db.query(sql, [id], (err, rows)=>{
         if(err) res.json({Message: err})
         res.json(rows)
@@ -94,7 +123,7 @@ app.get('/question/:id', (req,res)=>{
 
 app.get('/answer/:id', (req,res)=>{
     const id = req.params.id;
-    const sql = "SELECT title, content, uname FROM general_chat WHERE id= ?";
+    const sql = "SELECT title, content, uname FROM question_bank WHERE id= ?";
     db.query(sql, [id], (err, rows)=>{
         if(err) res.json({Message: err})
         res.json(rows)

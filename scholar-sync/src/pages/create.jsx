@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../js/AuthContext'
@@ -9,19 +9,21 @@ import { useAuth } from '../js/AuthContext'
 export default function Create() {
 
     const {user} = useAuth();
+    const uname = user
 
     const [values, setValues]= useState({
         title: '',
         content: '',
-        uname: user,
+        subcategory_id: '1',
+        uname: uname
     })
+
 
     const navigate = useNavigate();
 
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        
         console.log(values)
         axios.post("http://localhost:3000/create", values)
             .then(res =>{

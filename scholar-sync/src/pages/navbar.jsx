@@ -37,40 +37,40 @@ return (
             </Navbar.Collapse>
         </Container>
         </Navbar>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <Tab.Container id="left-tabs-example" defaultActiveKey="general-chat">
         <Row>
             <Col sm={3}>
             <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                <Nav.Link eventKey="first">General Chat</Nav.Link>
+                <Nav.Link eventKey="general-chat">General Chat</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link eventKey="second">Resources</Nav.Link>
+                <Nav.Link eventKey="resources">Resources</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link eventKey="third">Classroom Management</Nav.Link>
+                <Nav.Link eventKey="management">Classroom Management</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link eventKey="fourth">Pedagogy</Nav.Link>
+                <Nav.Link eventKey="pedagogy">Pedagogy</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link eventKey="fifth">Career Advice</Nav.Link>
+                <Nav.Link eventKey="career">Career Advice</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link eventKey="sixth">Misc</Nav.Link>
+                <Nav.Link eventKey="misc">Misc</Nav.Link>
                 </Nav.Item>
             </Nav>
             </Col>
             <Col sm={9}>
             <Tab.Content>
-                <Tab.Pane eventKey="first"> 
+                <Tab.Pane eventKey="general-chat"> 
                 <GeneralChat></GeneralChat>
                 </Tab.Pane>
-                <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
-                <Tab.Pane eventKey="third">Third tab content</Tab.Pane>
-                <Tab.Pane eventKey="fourth">Fourth tab content</Tab.Pane>
-                <Tab.Pane eventKey="fifth">Fifth tab content</Tab.Pane>
-                <Tab.Pane eventKey="sixth">Sixth tab content</Tab.Pane>
+                <Tab.Pane eventKey="resources">Second tab content</Tab.Pane>
+                <Tab.Pane eventKey="management">Third tab content</Tab.Pane>
+                <Tab.Pane eventKey="pedagogy">Fourth tab content</Tab.Pane>
+                <Tab.Pane eventKey="career">Fifth tab content</Tab.Pane>
+                <Tab.Pane eventKey="misc">Sixth tab content</Tab.Pane>
             </Tab.Content>
             </Col>
         </Row>
