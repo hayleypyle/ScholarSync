@@ -2,7 +2,7 @@ import React, { useState }  from 'react'
 import LeftNav from './navbar'
 import { useAuth } from '../js/AuthContext'
 import { Navigate, useNavigate } from 'react-router-dom'
-import './dashboard.css'
+import './css/dashboard.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 

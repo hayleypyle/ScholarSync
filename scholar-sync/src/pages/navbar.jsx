@@ -10,7 +10,11 @@ import {useState} from 'react';
 import { useAuth } from '../js/AuthContext'
 import './css/dashboard.css';
 import GeneralChat from './topics/generalchat';
-
+import Resources from './topics/resources';
+import Management from './topics/management';
+import Pedagogy from './topics/pedagogy';
+import Career from './topics/career';
+import Other from './topics/other';
 
 
 function LeftNav() {
@@ -66,11 +70,21 @@ return (
                 <Tab.Pane eventKey="general-chat"> 
                 <GeneralChat></GeneralChat>
                 </Tab.Pane>
-                <Tab.Pane eventKey="resources">Second tab content</Tab.Pane>
-                <Tab.Pane eventKey="management">Third tab content</Tab.Pane>
-                <Tab.Pane eventKey="pedagogy">Fourth tab content</Tab.Pane>
-                <Tab.Pane eventKey="career">Fifth tab content</Tab.Pane>
-                <Tab.Pane eventKey="misc">Sixth tab content</Tab.Pane>
+                <Tab.Pane eventKey="resources">
+                    <Resources></Resources>
+                </Tab.Pane>
+                <Tab.Pane eventKey="management">
+                    <Management></Management>
+                </Tab.Pane>
+                <Tab.Pane eventKey="pedagogy">
+                    <Pedagogy></Pedagogy>
+                </Tab.Pane>
+                <Tab.Pane eventKey="career">
+                    <Career></Career>
+                </Tab.Pane>
+                <Tab.Pane eventKey="misc">
+                    <Other></Other>
+                </Tab.Pane>
             </Tab.Content>
             </Col>
         </Row>
