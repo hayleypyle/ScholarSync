@@ -41,13 +41,16 @@ export default function Register() {
             }
             axios.post("http://localhost:3000/register", values)
             .then(res =>{
-            
                 navigate('/')
                 
             })
             .catch(err => {
-                console.log(err)})
-            };
+                if (err.response && err.response.data){
+                    setError(err.response.data.error);
+                } else{
+                    setError("An error occurred. Please try again later.")
+                }
+})};
         
             
     
@@ -88,6 +91,8 @@ export default function Register() {
             <label>Confirm Password</label>
             <input type="password" onChange={ e => setValues({...values, confirmPassword: e.target.value})} required></input>
             </div>
+
+            {error && <div className="error">{error}</div>}
 
             <button>Sign Up</button>
             <div id="tandc">
