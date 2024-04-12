@@ -5,6 +5,7 @@ import { Route, Navigate, useNavigate } from 'react-router-dom'
 import './css/dashboard.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import SidebarMenu from './SidebarMenu'
 
 export default function Dashboard() {
     
@@ -14,10 +15,22 @@ export default function Dashboard() {
         return <Navigate to= "/login" />
     }
 
-   
+
     return (
     <>
-        <LeftNav></LeftNav>
+    <LeftNav></LeftNav>
+    <div className="container-fluid d-flex flex-row p-0">
+            <div className="col-lg-3">
+                <SidebarMenu>
+                </SidebarMenu>
+            </div>
+
+            <div className="col-lg-9">
+    <div className="question-display">
+    <h2>Welcome to Scholar Sync!</h2>
+    </div>
+    </div>
+    </div>
     </>
     )
 }

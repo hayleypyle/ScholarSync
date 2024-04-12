@@ -12,7 +12,7 @@ function SidebarMenu() {
     return (
         <div className="container-fluid">
         <div className="row">
-            <div className="bg-dark col-auto col-md-3 min vh-100">
+            <div className="bg-dark min vh-100 p-0">
                 <ul className="nav nav-pills flex-column">
                     <li className="nav-item text-white fs-4">
                         <NavLink to="/general-chat" className="nav-link text-white fs-5" aria-current="page">

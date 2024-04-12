@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import '../css/question.css'
 import LeftNav from '../navbar'
+import SidebarMenu from '../SidebarMenu'
+
 
 export default function Other() {
   const [values, setValues] = useState([]);
@@ -23,6 +25,13 @@ export default function Other() {
   return (
     <>
     <LeftNav></LeftNav>
+    <div className="container-fluid d-flex flex-row p-0">
+            <div className="col-lg-3">
+                <SidebarMenu>
+                </SidebarMenu>
+            </div>
+
+            <div className="col-lg-9">
     <div className="question-display">
     <h2>Miscellaneous Chat</h2>
     <Link to="/create/6"><button>New Question</button></Link>
@@ -36,6 +45,8 @@ export default function Other() {
 
         ))}
 
+    </div>
+    </div>
     </div>
     </div>
     </>

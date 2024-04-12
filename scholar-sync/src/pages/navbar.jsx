@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../js/AuthContext'
 import './css/dashboard.css';
-import SidebarMenu from './SidebarMenu'
 
 
 
@@ -20,7 +19,7 @@ function LeftNav() {
 
 return (
     <>
-    <Navbar className="bg-body-tertiary">
+    <Navbar className="bg-body-tertiary navbar-expand-lg">
         <Container>
             <Navbar.Brand href="/">ScholarSync</Navbar.Brand>
             <Navbar.Toggle />
@@ -32,7 +31,8 @@ return (
             </Navbar.Collapse>
         </Container>
         </Navbar>
-        <SidebarMenu></SidebarMenu>
+        
+
 
     </>
     );

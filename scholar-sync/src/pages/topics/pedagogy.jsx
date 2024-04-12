@@ -3,27 +3,36 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import '../css/question.css'
 import LeftNav from '../navbar'
+import SidebarMenu from '../SidebarMenu'
+
 
 
 export default function Pedagogy() {
-  const [values, setValues] = useState([]);
-  const subcategory_id = '4';
+    const [values, setValues] = useState([]);
+    const subcategory_id = '4';
 
 
-  useEffect(() => {
-      axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
-          .then((response) => {
-              setValues(response.data);
-              console.log(response.data)
-          })
-          .catch((error) => {
-              console.error('Error fetching data:', error);
-          });
-  }, []); 
+    useEffect(() => {
+        axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
+            .then((response) => {
+                setValues(response.data);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []); 
 
-  return (
+return (
     <>
     <LeftNav></LeftNav>
+    <div className="container-fluid d-flex flex-row p-0">
+            <div className="col-lg-3">
+                <SidebarMenu>
+                </SidebarMenu>
+            </div>
+
+            <div className="col-lg-9">
     <div className="question-display">
     <h2>Pedagogy</h2>
     <Link to="/create/4"><button>New Question</button></Link>
@@ -39,6 +48,8 @@ export default function Pedagogy() {
 
     </div>
     </div>
+    </div>
+    </div>
     </>
-  )
+)
 }

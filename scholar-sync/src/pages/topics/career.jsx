@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import '../css/question.css'
 import LeftNav from '../navbar'
+import SidebarMenu from '../SidebarMenu'
+
 
 
 export default function Career() {
@@ -24,7 +26,13 @@ export default function Career() {
   return (
     <>
     <LeftNav></LeftNav>
- 
+    <div className="container-fluid d-flex flex-row p-0">
+            <div className="col-lg-3">
+                <SidebarMenu>
+                </SidebarMenu>
+            </div>
+
+            <div className="col-lg-9">
     <div className="question-display">
     <h2>Career Advice</h2>
     <Link to="/create/5"><button>New Question</button></Link>
@@ -38,6 +46,8 @@ export default function Career() {
 
         ))}
 
+    </div>
+    </div>
     </div>
     </div>
     </>
