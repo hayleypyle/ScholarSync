@@ -42,7 +42,7 @@ export default function Login() {
     useEffect(() =>{
         const loggedInUser = localStorage.getItem('user')
         if(loggedInUser){
-            navigate('/dashboard');
+            navigate('/');
         }
     }, [navigate]);
     
