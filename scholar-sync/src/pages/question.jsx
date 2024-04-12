@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import LeftNav from './navbar'
+import SidebarMenu from './SidebarMenu'
 
 
 
@@ -57,10 +58,17 @@ export default function Question() {
     return (
         <>
         <LeftNav></LeftNav>
+        <div className="container-fluid d-flex flex-row p-0">
+            <div className="col-lg-3">
+                <SidebarMenu>
+                </SidebarMenu>
+            </div>
+
+            <div className="col-lg-9">
+            <div className="question-display">
             <div className="question-detail">
                 {values ? (
                     <>
-                        <h2>General Chat</h2>
                         <div className="question-title">
                             <h4>{values.title}</h4>
                         </div>
@@ -114,6 +122,9 @@ export default function Question() {
                     <p>Loading...</p>
                 )}
                 <Link to="/">Back to dashboard</Link>
+            </div>
+            </div>
+            </div>
             </div>
         </>
     );

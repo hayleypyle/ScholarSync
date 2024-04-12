@@ -15,7 +15,7 @@
 }
 
 .question-content{
-    background-color:lightgrey;
+    background-color:white;
     padding:1%;
     font-size:1rem;
 }
@@ -31,7 +31,7 @@
 .answer{
     margin-top:5px;
     font-size:0.8rem;
-    background-color:lightgrey;
+    background-color:white;
     border: 1px solid black;
     border-radius:5px;
     padding-left:5px;
