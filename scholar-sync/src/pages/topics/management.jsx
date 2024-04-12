@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
-import '../css/dashboard.css'
+import '../css/question.css'
 import LeftNav from '../navbar'
 
 export default function Management() {
@@ -20,8 +20,8 @@ export default function Management() {
           });
   }, []); 
 
-  
-  return (
+
+return (
     <>
     <LeftNav></LeftNav>
     <div className="question-display">

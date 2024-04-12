@@ -15,11 +15,3 @@ body{
     border-style: none;
 }
 
-#left-tabs{
-    border: 3px solid black;
-    display:flex;
-    flex-direction:row;
-    width:20%;
-    height:100%;
-    justify-content: left;
-}

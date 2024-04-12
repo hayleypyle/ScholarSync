@@ -1,12 +1,7 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
-import {useState} from 'react';
 import { useAuth } from '../js/AuthContext'
 import './css/dashboard.css';
 import SidebarMenu from './SidebarMenu'
@@ -20,7 +15,7 @@ function LeftNav() {
 
     const handleLogout= () =>{
         logout();
-        navigate('/');
+        navigate('/login');
     }
 
 return (

@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
-import '../css/dashboard.css'
+import '../css/question.css'
 import LeftNav from '../navbar'
+
 
 export default function Career() {
   const [values, setValues] = useState([]);
