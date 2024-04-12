@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
 import '../css/dashboard.css'
+import LeftNav from '../navbar'
 
 
 export default function Pedagogy() {
@@ -21,6 +22,8 @@ export default function Pedagogy() {
   }, []); 
 
   return (
+    <>
+    <LeftNav></LeftNav>
     <div className="question-display">
     <h2>Pedagogy</h2>
     <Link to="/create/4"><button>New Question</button></Link>
@@ -36,5 +39,6 @@ export default function Pedagogy() {
 
     </div>
     </div>
+    </>
   )
 }

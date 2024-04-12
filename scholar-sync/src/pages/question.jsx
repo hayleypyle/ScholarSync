@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,13 +6,16 @@ import { useAuth } from '../js/AuthContext';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import LeftNav from './navbar'
+
+
 
 export default function Question() {
     const { id } = useParams();
     const { user } = useAuth();
     const [values, setValues] = useState(null);
     const [show, setShow] = useState(false);
-   
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -44,8 +46,6 @@ export default function Question() {
             uname: user
         })
         .then((res) => {
-            //navigate('/question/' + id);
-            //handleClose();
             window.location.reload();
 
         })
@@ -56,6 +56,7 @@ export default function Question() {
 
     return (
         <>
+        <LeftNav></LeftNav>
             <div className="question-detail">
                 {values ? (
                     <>
@@ -112,13 +113,6 @@ export default function Question() {
                 ) : (
                     <p>Loading...</p>
                 )}
-                {/* <div className="post-answer">
-                    <h6>Answer Question</h6>
-                    <form onSubmit={handleSubmit}>
-                        <input type="textarea" name="answer" className="answer-box" required />
-                        <div><button type="submit" className="post-answer-btn">Answer Question</button></div>
-                    </form>
-                </div> */}
                 <Link to="/">Back to dashboard</Link>
             </div>
         </>

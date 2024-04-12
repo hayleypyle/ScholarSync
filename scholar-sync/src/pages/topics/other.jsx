@@ -2,24 +2,27 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
 import '../css/dashboard.css'
+import LeftNav from '../navbar'
 
 export default function Other() {
   const [values, setValues] = useState([]);
   const subcategory_id = '6';
 
 
-  useEffect(() => {
-      axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
-          .then((response) => {
-              setValues(response.data);
-              console.log(response.data)
-          })
-          .catch((error) => {
-              console.error('Error fetching data:', error);
-          });
-  }, []); 
+    useEffect(() => {
+        axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
+            .then((response) => {
+                setValues(response.data);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []); 
 
   return (
+    <>
+    <LeftNav></LeftNav>
     <div className="question-display">
     <h2>Miscellaneous Chat</h2>
     <Link to="/create/6"><button>New Question</button></Link>
@@ -35,5 +38,6 @@ export default function Other() {
 
     </div>
     </div>
+    </>
   )
 }

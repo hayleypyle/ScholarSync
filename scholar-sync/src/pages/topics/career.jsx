@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
 import '../css/dashboard.css'
+import LeftNav from '../navbar'
 
 export default function Career() {
   const [values, setValues] = useState([]);
@@ -20,6 +21,9 @@ export default function Career() {
   }, []); 
 
   return (
+    <>
+    <LeftNav></LeftNav>
+ 
     <div className="question-display">
     <h2>Career Advice</h2>
     <Link to="/create/5"><button>New Question</button></Link>
@@ -35,6 +39,7 @@ export default function Career() {
 
     </div>
     </div>
+    </>
   
   )
 }

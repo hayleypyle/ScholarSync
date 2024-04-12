@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";  
 import axios from 'axios'
 import '../css/dashboard.css'
+import LeftNav from '../navbar'
 
 
 
@@ -24,6 +25,8 @@ export default function GeneralChat() {
     
 
     return (
+        <>
+        <LeftNav></LeftNav>
         <div className="question-display">
         <h2>General Chat</h2>
         <Link to="/create/1"><button>New Question</button></Link>
@@ -39,5 +42,6 @@ export default function GeneralChat() {
 
         </div>
         </div>
+        </>
     )
 }

@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "bootstrap-icons": "^1.11.3",
     "react": "^18.2.0",
+    "react-bootstrap-icons": "^1.11.4",
+    "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-dom": "^18.2.0",
     "react-password-checklist": "^1.5.1"
   },
