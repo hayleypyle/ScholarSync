@@ -12,23 +12,46 @@ export default function Register() {
         lname: '',
         email: '',
         uname: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     })
+
+    const [error, setError] = useState('');
 
 
     const navigate = useNavigate();
 
+    function validatePassword(password) {
+        // Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character
+        const passwordReqs = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordReqs.test(password);
+    }
+    
+
     const handleSubmit =(event) =>{
             event.preventDefault();
             console.log(values)
+            if (values.password !== values.confirmPassword) {
+                setError("Passwords don't match");
+                return;
+            }
+            if (!validatePassword(values.password)) {
+                setError("Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character");
+                return;
+            }
             axios.post("http://localhost:3000/register", values)
             .then(res =>{
+            
                 navigate('/')
+                
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)})
+            };
+        
             
-            
-    }
+    
+
     return (
         <div className="register-container">
         <h1>Sign Up</h1>
@@ -63,21 +86,8 @@ export default function Register() {
         
             <div className="form-input" id="register">
             <label>Confirm Password</label>
-            <input type="password" 
-            //onChange={ e => setValues(e.target.value)} 
-            required></input>
+            <input type="password" onChange={ e => setValues({...values, confirmPassword: e.target.value})} required></input>
             </div>
-
-            {/* <PasswordChecklist
-                rules = {
-                    ['minLength', "number", "match", "hideIcon"]
-                }
-                minLength ={8}
-                hideIcon={true}
-                value={password}
-                valueAgain={passwordAgain}
-                onChange = {(isValid)=>{}}
-                /> */}
 
             <button>Sign Up</button>
             <div id="tandc">

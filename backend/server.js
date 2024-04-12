@@ -18,22 +18,51 @@ app.listen(3000, () =>{
     console.log('listening on port 3000');
 })
 
-app.post('/register',(req, res) =>{
-    const sql = "INSERT INTO users (fname, lname, uname, email, password) VALUES (?)";
-    const values = [
-        req.body.fname,
-        req.body.lname,
-        req.body.uname,
-        req.body.email,
-        req.body.password
-    ]
-    db.query(sql, [values], (err, data)=> {
-        if(err){
-            return res.json("Error");
+app.post('/register', (req, res) => {
+    const uname_exists = "SELECT COUNT(*) AS count FROM users WHERE uname = ?";
+    db.query(uname_exists, [req.body.uname], (err, unameResult) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({ error: "Error checking username existence" });
         }
-        return res.json(data);
-    })
-})
+        if (unameResult[0].count > 0) {
+            console.log(err);
+            return res.status(400).json({ error: "Username already exists" });
+        }
+
+        const email_exists = "SELECT COUNT(*) AS count FROM users WHERE email = ?";
+        db.query(email_exists, [req.body.email], (err, emailResult) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ error: "Error checking email existence" });
+            }
+            if (emailResult[0].count > 0) {
+                console.log(err);
+                return res.status(400).json({ error: "Email already exists" });
+                
+            }
+
+            const sql = "INSERT INTO users (fname, lname, uname, email, password) VALUES (?)";
+            const values = [
+                    req.body.fname,
+                    req.body.lname,
+                    req.body.uname,
+                    req.body.email,
+                    req.body.password
+                ];
+
+        db.query(sql, [values], (err, data) => {
+            if (err) {
+                return res.status(500).json({ error: "Error inserting user into database" });
+                console.log(err);
+            }
+                return res.status(200).json({ success: true });
+            });
+        });
+    });
+});
+
+
 app.post('/login',(req, res) =>{
     const sql = "SELECT * FROM `users` WHERE (uname = ? AND password = ?)";
     const values = [
