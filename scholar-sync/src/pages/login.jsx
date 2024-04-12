@@ -14,6 +14,7 @@ export default function Login() {
         uname: '',
         password: ''
     });
+    const [error, setError] = useState('')
 
 
     const navigate = useNavigate();
@@ -29,13 +30,12 @@ export default function Login() {
                     login(values.uname)
                     navigate('/dashboard')
                 } else {
-                    console.log('login failed')
-                    alert("Login information is incorrect")
+                    setError('Login invalid. Please check username and password')
                 }
             })
             .catch(err => {
-                console.error("error during login", err)})
-            
+                setError('an error occurred please try again later')
+            })          
             
     }
 
@@ -62,7 +62,7 @@ export default function Login() {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" value = {values.password} onChange= {e => setValues({...values, password: e.target.value})} required></input>
             </div>
-            
+            {error && <div className="error">{error}</div>}
             <button type="submit">Sign In</button>
             </div>
         </form>
