@@ -1,5 +1,4 @@
 import React, { useState, } from 'react'
-import PasswordChecklist from 'react-password-checklist'
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import './css/login.css'
@@ -30,7 +29,6 @@ export default function Register() {
 
     const handleSubmit =(event) =>{
             event.preventDefault();
-            console.log(values)
             if (values.password !== values.confirmPassword) {
                 setError("Passwords don't match");
                 return;

@@ -1,6 +1,6 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
-import { useNavigate, Link, useParams } from "react-router-dom";
+import {useState} from 'react'
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { useAuth } from '../js/AuthContext'
 import './css/create.css'
@@ -48,7 +48,6 @@ export default function Create() {
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        console.log(values)
         if (values.title === ' '){
             setError("Must have a title.");
             return

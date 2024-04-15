@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './css/question.css';
 import { useAuth } from '../js/AuthContext';
@@ -16,8 +16,6 @@ export default function Question() {
     const { user } = useAuth();
     const [values, setValues] = useState(null);
     const [show, setShow] = useState(false);
-    const navigate = useNavigate();
-
 
 
     const handleClose = () => setShow(false);
@@ -55,7 +53,6 @@ export default function Question() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e.target)
         const answer = e.target.answer.value;
 
         axios.post('http://localhost:3000/answer', {

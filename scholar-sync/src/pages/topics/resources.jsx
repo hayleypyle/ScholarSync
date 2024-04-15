@@ -15,7 +15,6 @@ export default function Resources() {
         axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
             .then((response) => {
                 setValues(response.data);
-                console.log(response.data)
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);

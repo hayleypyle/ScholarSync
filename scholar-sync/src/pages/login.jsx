@@ -24,9 +24,7 @@ export default function Login() {
             
             axios.post("http://localhost:3000/login", values)
                 .then(res =>{
-                console.log("login response:", res.data)
                 if(res.data === "success"){
-                    console.log("login successful")
                     login(values.uname)
                     navigate('/dashboard')
                 } else {
