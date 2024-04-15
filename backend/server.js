@@ -101,7 +101,7 @@ app.post('/create',(req, res) =>{
 
 app.get('/', (req,res)=>{
     const subcategory_id = req.query.subcategory_id;
-    const sql = "SELECT ID, title, content, subcategory_id, created_at, uname FROM question_bank WHERE subcategory_id=?";
+    const sql = "SELECT ID, title, content, subcategory_id, DATE_FORMAT(created_at, '%m-%d-%Y %H:%i %p') AS formatted_timestamp, uname FROM question_bank WHERE subcategory_id=?";
     db.query(sql, [subcategory_id], (err, rows)=>{
         if(err){
             res.json({Message: err})
@@ -113,7 +113,7 @@ app.get('/', (req,res)=>{
             title: row.title,
             content: row.content,
             subcategory_id: row.subcategory_id,
-            created_at: row.created_at,
+            created_at: row.formatted_timestamp,
             uname: row.uname
         }));
         res.json(questions);
@@ -124,7 +124,7 @@ app.get('/', (req,res)=>{
 
 app.get('/question/:id', (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT id, title, content, uname, created_at, subcategory_id FROM question_bank WHERE id= ?";
+    const sql = "SELECT id, title, content, uname, DATE_FORMAT(created_at, '%m-%d-%Y %h:%i %p') AS formatted_timestamp, subcategory_id FROM question_bank WHERE id= ?";
     db.query(sql, [id], (err, rows) => {
         if (err) {
             res.json({ Message: err });
@@ -136,7 +136,7 @@ app.get('/question/:id', (req, res) => {
             return;
         }
 
-        const answerSQL = "SELECT id, subcategory_id, question_id, answer, uname, subcategory_id, created_at FROM answer_bank WHERE question_id = ?";
+        const answerSQL = "SELECT id, subcategory_id, question_id, answer, uname, subcategory_id, DATE_FORMAT(created_at, '%m-%d-%Y %h:%i %p') AS formatted_timestamp FROM answer_bank WHERE question_id = ?";
         db.query(answerSQL, [id], (err, answerRows) => {
             if (err) {
                 res.json({ Message: err });

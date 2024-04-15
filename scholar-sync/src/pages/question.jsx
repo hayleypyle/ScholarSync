@@ -94,7 +94,7 @@ export default function Question() {
                             <p>{values.content}</p>
                         </div>
                         <div className="question-stamp">
-                            <p>posted by {values.uname} on {values.created_at}.</p>
+                            <p>posted by {values.uname} on {values.formatted_timestamp}.</p>
                         </div>
 
                         <Button variant="primary" onClick={handleShow}>
@@ -130,7 +130,7 @@ export default function Question() {
                         <div className="answer-container">
                             {values.answers && values.answers.map(answer => (
                                 <div key={answer.id} className="answer">
-                                    <p>{answer.uname} on {answer.created_at} said:</p>
+                                    <p>{answer.uname} on {answer.formatted_timestamp} said:</p>
                                     <p>{answer.answer}</p>
                                 </div>
                             ))}

@@ -23,6 +23,9 @@ export default function Create() {
         uname: uname
     })
 
+    const [error, setError] = useState('');
+
+
     const subcategoryUrls = {
         1: '/#/general-chat',
         2: '/#/resources',
@@ -46,11 +49,28 @@ export default function Create() {
     const handleSubmit = (event) =>{
         event.preventDefault();
         console.log(values)
+        if (values.title === ' '){
+            setError("Must have a title.");
+            return
+
+        }
+        if (values.title.endsWith('?') === false){
+            setError("Title must be a question ending with a question mark.");
+            return
+
+        }
         axios.post("http://localhost:3000/create", values)
             .then(res =>{
                 navigateBackToSubcategory(subcategory_id)
             })
-            .catch(err => console.log(err))
+            .catch(err => 
+                {
+                    if (err.response && err.response.data){
+                        setError(err.response.data.error);
+                    } else{
+                        setError("Error submitting answer", error)
+                    }
+                })
     }
 
 
@@ -72,6 +92,8 @@ export default function Create() {
                 <label>Title:</label>
                 <input type="text" className="title" onChange = {e=>setValues({...values, title: e.target.value})} required></input>
                 </div>
+                {error && <div className="error">{error}</div>}
+
             
                 <div>
                 <label>Text:</label>

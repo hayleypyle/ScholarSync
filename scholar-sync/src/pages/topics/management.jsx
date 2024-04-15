@@ -35,7 +35,7 @@ return (
             <div className="col-lg-9">
         
                 <div className="question-display">
-                <h2>Management</h2>
+                <h2>Classroom Management</h2>
                 <Link to="/create/3"><button>New Question</button></Link>
                 
                 <div className="question-container">
