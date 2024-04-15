@@ -124,7 +124,7 @@ app.get('/', (req,res)=>{
 
 app.get('/question/:id', (req, res) => {
     const id = req.params.id;
-    const sql = "SELECT id, title, content, uname, created_at FROM question_bank WHERE id= ?";
+    const sql = "SELECT id, title, content, uname, created_at, subcategory_id FROM question_bank WHERE id= ?";
     db.query(sql, [id], (err, rows) => {
         if (err) {
             res.json({ Message: err });
@@ -136,7 +136,7 @@ app.get('/question/:id', (req, res) => {
             return;
         }
 
-        const answerSQL = "SELECT id, subcategory_id, question_id, answer, uname, created_at FROM answer_bank WHERE question_id = ?";
+        const answerSQL = "SELECT id, subcategory_id, question_id, answer, uname, subcategory_id, created_at FROM answer_bank WHERE question_id = ?";
         db.query(answerSQL, [id], (err, answerRows) => {
             if (err) {
                 res.json({ Message: err });

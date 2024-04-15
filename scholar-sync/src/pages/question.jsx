@@ -16,6 +16,8 @@ export default function Question() {
     const { user } = useAuth();
     const [values, setValues] = useState(null);
     const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+
 
 
     const handleClose = () => setShow(false);
@@ -33,7 +35,23 @@ export default function Question() {
             });
     }, [id]);
 
-    const navigate = useNavigate();
+    const subcategoryUrls = {
+        1: '/#/general-chat',
+        2: '/#/resources',
+        3: '/#/management',
+        4: '/#/pedagogy',
+        5: '/#/career',
+        6: '/#/other',
+    };
+
+    const navigateBackToSubcategory = (subcategory_id) => {
+        const subcategoryUrl = subcategoryUrls[values.subcategory_id];
+        if (subcategoryUrl) {
+            window.location.href = subcategoryUrl;
+        } else {
+            console.error(`Subcategory URL not found for ID ${values.subcategory_id}`);
+        }
+    };
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -41,7 +59,7 @@ export default function Question() {
         const answer = e.target.answer.value;
 
         axios.post('http://localhost:3000/answer', {
-            subcategory_id: '1',
+            subcategory_id: values.subcategory_id,
             question_id: id,
             answer: answer,
             uname: user
@@ -121,7 +139,7 @@ export default function Question() {
                 ) : (
                     <p>Loading...</p>
                 )}
-                <button onClick={() => navigateBackToSubcategory(subcategory_id)}>Back</button>
+                <button onClick={() => navigateBackToSubcategory(values.subcategory_id)}>Back</button>
 
             </div>
             </div>
