@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useAuth } from '../js/AuthContext'
 import './css/create.css'
 import LeftNav from './navbar'
+import SidebarMenu from './SidebarMenu';
 
 
 
@@ -22,8 +23,24 @@ export default function Create() {
         uname: uname
     })
 
+    const subcategoryUrls = {
+        1: '/#/general-chat',
+        2: '/#/resources',
+        3: '/#/management',
+        4: '/#/pedagogy',
+        5: '/#/career',
+        6: '/#/other',
+    };
 
-    const navigate = useNavigate();
+
+    const navigateBackToSubcategory = (subcategory_id) => {
+        const subcategoryUrl = subcategoryUrls[subcategory_id];
+        if (subcategoryUrl) {
+            window.location.href = subcategoryUrl;
+        } else {
+            console.error(`Subcategory URL not found for ID ${subcategory_id}`);
+        }
+    };
 
 
     const handleSubmit = (event) =>{
@@ -31,7 +48,7 @@ export default function Create() {
         console.log(values)
         axios.post("http://localhost:3000/create", values)
             .then(res =>{
-                navigate('/')
+                navigateBackToSubcategory(subcategory_id)
             })
             .catch(err => console.log(err))
     }
@@ -39,7 +56,13 @@ export default function Create() {
 
     return (
         <>
-        
+        <LeftNav></LeftNav>
+        <div className="container-fluid d-flex flex-row p-0">
+        <div className="col-lg-3">
+            <SidebarMenu>
+            </SidebarMenu>
+        </div>
+        <div className="col-lg-9">
         <div className="create-container">
         
         <form action="" onSubmit = {handleSubmit}>
@@ -58,10 +81,15 @@ export default function Create() {
 
             <div className="end-container">
             <button type="submit">Post</button>
-            <Link to ="/">Back to dashboard</Link></div>
+            <button onClick={() => navigateBackToSubcategory(subcategory_id)}>Back</button>
+            </div>
         
         </form>
         </div>
+        </div>
+        </div>
+
+
         </>
     )
 }

@@ -121,7 +121,8 @@ export default function Question() {
                 ) : (
                     <p>Loading...</p>
                 )}
-                <Link to="/">Back to dashboard</Link>
+                <button onClick={() => navigateBackToSubcategory(subcategory_id)}>Back</button>
+
             </div>
             </div>
             </div>

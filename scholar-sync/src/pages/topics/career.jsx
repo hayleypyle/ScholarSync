@@ -8,22 +8,22 @@ import SidebarMenu from '../SidebarMenu'
 
 
 export default function Career() {
-  const [values, setValues] = useState([]);
-  const subcategory_id = '5';
+const [values, setValues] = useState([]);
+const subcategory_id = '5';
 
 
-  useEffect(() => {
-      axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
-          .then((response) => {
-              setValues(response.data);
-              console.log(response.data)
-          })
-          .catch((error) => {
-              console.error('Error fetching data:', error);
-          });
-  }, []); 
+    useEffect(() => {
+        axios.get(`http://localhost:3000/?subcategory_id=${subcategory_id}`)
+            .then((response) => {
+                setValues(response.data);
+                console.log(response.data)
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []); 
 
-  return (
+return (
     <>
     <LeftNav></LeftNav>
     <div className="container-fluid d-flex flex-row p-0">
