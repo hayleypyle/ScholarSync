@@ -57,8 +57,29 @@
 }
 
 .question-display{
-    background-color:lightgrey;
+    background-color:#FBFAFB;
+    border:2px solid #94B7CB;
+    color:#042348;
     padding:5px;
-    height:100vh;
-    width:100vw;
+    height:100%;
+    margin:10px 15px 0 30px;
+    padding: 20px 0 0 20px;
+}
+
+.question-container{
+    border-radius:2px;
+
+}
+
+.question-wrapper{
+    border-bottom:1px solid #94B7CB;
+    background-color:#FBFAFB;
+    color:#8895A6;
+    padding:3px;
+
+}
+
+.link{
+    text-decoration: none;
+    color:#375170;
 }

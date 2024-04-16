@@ -7,6 +7,7 @@
 body{
     font-family: 'Didact Gothic', sans-serif;
     margin:0;
+    background-color:#042348;
 }
 
 .logout-btn{
@@ -18,24 +19,30 @@ body{
 
 }
 
-.container-fluid{
-    background-color:#375170;
+.custom-nav{
+    background-color:#FBFAFB;
+    border:2px solid #94B7CB;
+    margin-left:15px;
+    margin-top:10px;
+    height:100%;
+
 }
 
 .ms-2, .icon{
-    color:#FBFAFB;
+    color:#042348;
 }
 
 .custom-nav .nav-pills .nav-link.active {
     background-color: #FBFAFB;
-    color: #375170;
+    color: #042348;
 }
 
 
 .custom-topbar {
     background-color:#FBFAFB;
+    border:15px solid #94B7CB;
 }
 
 .custom-topbar .navbar-brand, .custom-topbar .navbar-text{
-    color:#375170;
+    color:#042348;
 }

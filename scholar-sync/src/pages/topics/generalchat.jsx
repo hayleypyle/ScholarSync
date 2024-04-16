@@ -41,7 +41,7 @@ export default function GeneralChat() {
         <div className="question-container">
             {values.map((value) =>(
                 <div key={value.id} className="question-wrapper">
-                    <Link to={`/question/${value.id}`}>{value.title}</Link>
+                    <Link className="link" to={`/question/${value.id}`}>{value.title}</Link>
                     <h6>posted by {value.uname} on {value.created_at}</h6>
                 </div>
 
