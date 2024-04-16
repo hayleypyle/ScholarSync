@@ -13,5 +13,29 @@ body{
     font-size:12px;
     width:50%;
     border-style: none;
+    background-color:#8895A6;
+    color:#FBFAFB;
+
 }
 
+.container-fluid{
+    background-color:#375170;
+}
+
+.ms-2, .icon{
+    color:#FBFAFB;
+}
+
+.custom-nav .nav-pills .nav-link.active {
+    background-color: #FBFAFB;
+    color: #375170;
+}
+
+
+.custom-topbar {
+    background-color:#FBFAFB;
+}
+
+.custom-topbar .navbar-brand, .custom-topbar .navbar-text{
+    color:#375170;
+}

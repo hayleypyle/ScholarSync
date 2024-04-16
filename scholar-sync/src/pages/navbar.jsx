@@ -19,7 +19,7 @@ function LeftNav() {
 
 return (
     <>
-    <Navbar className="bg-body-tertiary navbar-expand-lg">
+    <Navbar className="bg-body-tertiary navbar-expand-lg custom-topbar">
         <Container>
             <Navbar.Brand href="/">ScholarSync</Navbar.Brand>
             <Navbar.Toggle />
