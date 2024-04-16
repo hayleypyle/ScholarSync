@@ -58,11 +58,9 @@
 
 .question-display{
     background-color:#FBFAFB;
-    border:2px solid #94B7CB;
     color:#042348;
-    padding:5px;
-    height:100%;
-    margin:10px 15px 0 30px;
+    height:95%;
+    margin:10px 15px 0 15px;
     padding: 20px 0 0 20px;
 }
 
@@ -73,6 +71,7 @@
 
 .question-wrapper{
     border-bottom:1px solid #94B7CB;
+    margin-right:17px;
     background-color:#FBFAFB;
     color:#8895A6;
     padding:3px;
