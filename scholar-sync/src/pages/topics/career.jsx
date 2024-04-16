@@ -34,7 +34,7 @@ return (
             <div className="col-lg-9">
     <div className="question-display">
     <h2>Career Advice</h2>
-    <Link to="/create/5"><button>New Question</button></Link>
+    <Link to="/create/5"><button className="question-btn">New Question</button></Link>
     
     <div className="question-container">
         {values.map((value) =>(
@@ -50,6 +50,6 @@ return (
     </div>
     </div>
     </>
-  
-  )
+
+)
 }

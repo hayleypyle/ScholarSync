@@ -36,7 +36,7 @@ export default function GeneralChat() {
         <div className="col-lg-9">
         <div className="question-display">
         <h2>General Chat</h2>
-        <Link to="/create/1"><button>New Question</button></Link>
+        <Link to="/create/1"><button className="question-btn">New Question</button></Link>
         
         <div className="question-container">
             {values.map((value) =>(

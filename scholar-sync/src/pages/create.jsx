@@ -99,7 +99,7 @@ export default function Create() {
                 <div>
                 <label>Question Description:</label>
                 <div className="create-input">
-                <input type="textarea" className="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></input>
+                <textarea className="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></textarea>
                 </div>
                 </div>
                 <div className="end-container">

@@ -36,12 +36,6 @@
 }
 
 
-.answer-btn{
-    font-size:0.8rem;
-    width:20%;
-
-}
-
 .answer-box{
     font-size:0.8rem;
     width:500px;
@@ -83,4 +77,37 @@
 .link{
     text-decoration: none;
     color:#375170;
+    border-style:none;
+}
+
+.back-btn{
+    background-color:#8895A6;
+    color:#FBFAFB;
+    border-radius:2px;
+    border-style:none;
+    margin:5px;
+    font-size:14px;
+}
+
+
+.answer-btn, .question-btn{
+    background-color:#E49C2F;
+    border-radius:2px;
+    border-style:none;
+    color:#FBFAFB;
+    margin:5px;
+    font-size:14px;
+}
+
+.modal-btn{
+    padding:1px;
+    width:50%;
+}
+
+.btn-container{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items:center;
+    margin-top:10px;
 }

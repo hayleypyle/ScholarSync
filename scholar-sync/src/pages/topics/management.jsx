@@ -35,7 +35,7 @@ return (
         
                 <div className="question-display">
                 <h2>Classroom Management</h2>
-                <Link to="/create/3"><button>New Question</button></Link>
+                <Link to="/create/3"><button className="question-btn">New Question</button></Link>
                 
                 <div className="question-container">
                     {values.map((value) =>(

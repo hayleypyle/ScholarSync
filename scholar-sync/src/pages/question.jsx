@@ -94,9 +94,13 @@ export default function Question() {
                             <p>posted by {values.uname} on {values.formatted_timestamp}.</p>
                         </div>
 
-                        <Button variant="primary" onClick={handleShow}>
+                        <Button className="answer-btn"  onClick={handleShow}>
                             Answer Question
                         </Button>
+                        <Button className="back-btn" onClick={() => navigateBackToSubcategory(values.subcategory_id)}>
+                            Back
+                        </Button>
+
 
                         <Modal show={show} onHide={handleClose} centered>
                             <Modal.Header closeButton>
@@ -108,12 +112,14 @@ export default function Question() {
                                 className="mb-3"
                                 controlId="exampleForm.ControlTextarea1">
                                 <Form.Control as="textarea" name="answer" rows={3} required />
-                                <Button variant="secondary" onClick={handleClose}>
+                                <div className="btn-container">
+                                <Button className="modal-btn" type="submit" variant="primary">
+                                Post
+                                </Button>
+                                <Button className="modal-btn" variant="secondary" onClick={handleClose}>
                                 Close
                                 </Button>
-                                <Button type="submit" variant="primary">
-                                Post
-                            </Button>
+                                </div>
 
                                 </Form.Group>
                                 </Form>
@@ -136,8 +142,6 @@ export default function Question() {
                 ) : (
                     <p>Loading...</p>
                 )}
-                <button onClick={() => navigateBackToSubcategory(values.subcategory_id)}>Back</button>
-
             </div>
             </div>
             </div>
