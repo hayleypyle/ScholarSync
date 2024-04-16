@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './css/login.css'
 import axios from 'axios'
 import { useAuth } from '../js/AuthContext'
+import image from '../images/image1.jpg'
 
 
 
@@ -50,15 +51,19 @@ export default function Login() {
     }, [navigate]);
     
     return (
+        <>
+        <div className="container-fluid d-flex flex-row p-0">
+        <div className="col-lg-4">
         <div className="login-container">
-        <h1>Login</h1>
+        <h1>ScholarSync</h1>
+    
     
         <form action="" onSubmit={handleSubmit}>
-        <div className="form-container" id="login">
+        <div className="login-form-container" id="login">
+            <h3>Login</h3>
             <div className="login-input">
             <label htmlFor="uname">Username</label>
             <input type="text" name="uname" value = {values.uname} onChange = {e=>setValues({...values, uname: e.target.value})} required ></input>
-            
             </div>
             
             <div className="login-input">
@@ -66,14 +71,28 @@ export default function Login() {
             <input type="password" name="password" value = {values.password} onChange= {e => setValues({...values, password: e.target.value})} required></input>
             </div>
             {error && <div className="error">{error}</div>}
-            <button type="submit">Sign In</button>
+            <button className="signin-btn" type="submit">Sign In</button>
             </div>
         </form>
     
         
-
+        <div className="no-account">
         <p>Don't have an account?</p>
         <Link to ="/register" className="reg-button">Register</Link>
         </div>
+        </div>
+        </div>
+
+        <div className="col-lg-8 p-0">
+            <div className="backimg">
+                <div className="quote">
+                    <h3>"Teaching kids to count is fine, but teaching kids what counts is best."</h3>
+                    <h4>-Bob Talbert</h4>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </>
     )
 }

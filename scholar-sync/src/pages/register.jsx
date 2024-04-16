@@ -55,7 +55,7 @@ export default function Register() {
 
     return (
         <div className="register-container">
-        <h1>Sign Up</h1>
+        <h3>Sign Up for Scholar Sync!</h3>
         
         <form action="" onSubmit={handleSubmit}>
         <div className="form-container" id="register">
@@ -92,17 +92,21 @@ export default function Register() {
 
             {error && <div className="error">{error}</div>}
 
-            <button>Sign Up</button>
+            <div className="signUp">
             <div id="tandc">
             By clicking sign up, you agree to our terms and conditions.
             </div>
+            <button className="signUp-btn">Sign Up</button>
+            </div>
+        
         </div>
         </form>
         
         
-
+        <div className="no-register">
         <p>Already have an account?</p>
         <Link to ="/" className="reg-button">Login</Link>
+        </div>
         </div>
     )
 }
