@@ -27,13 +27,17 @@ body{
 
 }
 
-.ms-2, .icon{
-    color:#042348;
+.container-fluid .nav .active {
+    background-color:#E49C2F !important;
+}
+.container-fluid .nav .active .ms-2,
+.container-fluid .nav .active .icon {
+    color: #FBFAFB !important;
 }
 
-.custom-nav .nav-pills .nav-link.active {
-    background-color: #FBFAFB;
-    color: #042348;
+
+.ms-2, .icon{
+    color:#042348;
 }
 
 
@@ -45,3 +49,4 @@ body{
 .custom-topbar .navbar-brand, .custom-topbar .navbar-text{
     color:#042348;
 }
+
