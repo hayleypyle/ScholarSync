@@ -86,24 +86,29 @@ export default function Create() {
         
         <form action="" onSubmit = {handleSubmit}>
             <div className="create-question">
-            <h2>Create Question</h2>
+            <h5>Create Question</h5>
                 <div>
-                <label>Title:</label>
+                <label>Question Title:</label>
+                <div className="create-input">
                 <input type="text" className="title" onChange = {e=>setValues({...values, title: e.target.value})} required></input>
+                </div>
                 </div>
                 {error && <div className="error">{error}</div>}
 
             
                 <div>
-                <label>Text:</label>
+                <label>Question Description:</label>
+                <div className="create-input">
                 <input type="textarea" className="textarea" onChange = {e=>setValues({...values, content: e.target.value})}></input>
+                </div>
+                </div>
+                <div className="end-container">
+                <button className="post-btn" type="submit">Post</button>
+                <button className="back-btn" onClick={() => navigateBackToSubcategory(subcategory_id)}>Back</button>
                 </div>
             </div>
 
-            <div className="end-container">
-            <button type="submit">Post</button>
-            <button onClick={() => navigateBackToSubcategory(subcategory_id)}>Back</button>
-            </div>
+            
         
         </form>
         </div>
