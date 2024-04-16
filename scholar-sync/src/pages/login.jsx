@@ -9,6 +9,7 @@ import { useAuth } from '../js/AuthContext'
 
 export default function Login() {
 
+
     const { login } = useAuth();
     const [values, setValues]= useState({
         uname: '',
@@ -24,15 +25,19 @@ export default function Login() {
             
             axios.post("http://localhost:3000/login", values)
                 .then(res =>{
-                if(res.data === "success"){
+                if(res.data.success){
                     login(values.uname)
-                    navigate('/dashboard')
+                    navigate('/')
                 } else {
                     setError('Login invalid. Please check username and password')
                 }
             })
             .catch(err => {
-                setError('an error occurred please try again later')
+                if (err.response && err.response.status === 401) {
+                    setError('Login invalid. Please check username and password')
+                } else {
+                    setError('An error occurred. Please try again later.')
+                }
             })          
             
     }
