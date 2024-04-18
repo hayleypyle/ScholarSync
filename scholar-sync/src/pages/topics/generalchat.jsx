@@ -6,11 +6,10 @@ import LeftNav from '../navbar'
 import SidebarMenu from '../SidebarMenu'
 
 
-
-
 export default function GeneralChat() {
     const [values, setValues] = useState([]);
     const subcategory_id = '1';
+    
 
 
     useEffect(() => {
