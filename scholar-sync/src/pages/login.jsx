@@ -34,7 +34,7 @@ export default function Login() {
                 }
             })
             .catch(err => {
-                if (err.response && err.response.status === 401) {
+                if (err.response && err.response.status === 401 || err.response && err.response.status === 400) {
                     setError('Login invalid. Please check username and password')
                 } else {
                     setError('An error occurred. Please try again later.')

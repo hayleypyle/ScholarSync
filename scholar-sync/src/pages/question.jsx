@@ -16,6 +16,8 @@ export default function Question() {
     const { user } = useAuth();
     const [values, setValues] = useState(null);
     const [show, setShow] = useState(false);
+    const [error, setError] = useState('');
+
 
 
     const handleClose = () => setShow(false);
@@ -55,6 +57,11 @@ export default function Question() {
         e.preventDefault();
         const answer = e.target.answer.value;
 
+        if (answer === ' '){
+            setError("Please type something before submitting.");
+            return
+        }
+
         axios.post('http://localhost:3000/answer', {
             subcategory_id: values.subcategory_id,
             question_id: id,
@@ -66,7 +73,12 @@ export default function Question() {
 
         })
         .catch((error) => {
-            console.error('Error submitting answer', error);
+            if (err.response && err.response.data){
+                setError(err.response.data.error);
+            } else{
+                setError("Error submitting answer", error)
+            }
+            
         });
     }
 
@@ -111,6 +123,8 @@ export default function Question() {
                                 <Form.Group
                                 className="mb-3"
                                 controlId="exampleForm.ControlTextarea1">
+                                {error && <div className="error">{error}</div>}
+
                                 <Form.Control as="textarea" name="answer" rows={3} required />
                                 <div className="btn-container">
                                 <Button className="modal-btn" type="submit" variant="primary">

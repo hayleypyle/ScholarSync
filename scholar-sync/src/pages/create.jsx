@@ -67,7 +67,7 @@ export default function Create() {
                     if (err.response && err.response.data){
                         setError(err.response.data.error);
                     } else{
-                        setError("Error submitting answer", error)
+                        setError("Error submitting question", error)
                     }
                 })
     }
