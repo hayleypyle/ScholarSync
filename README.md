@@ -16,13 +16,13 @@ This is an app that acts as a question forum for teachers.
     - Ability to search questions and answers.
 
 # How to use
--Download zip file and use terminal to cd to the backend directory
-    -npm install mysql express cors nodemon axios argon2
-    -npm start
--cd to scholar-sync directory
-    -npm install react-bootstrap bootstrap
-    -npm install react-bootstrap-icons —save
-    -npm run dev
+- Download zip file and use terminal to cd to the backend directory
+    - npm install mysql express cors nodemon axios argon2
+    - npm start
+- cd to scholar-sync directory
+    - npm install react-bootstrap bootstrap
+    - npm install react-bootstrap-icons —save
+    - npm run dev
 
 
 
