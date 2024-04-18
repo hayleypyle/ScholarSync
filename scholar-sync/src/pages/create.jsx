@@ -87,7 +87,7 @@ export default function Create() {
         
         <form action="" onSubmit = {handleSubmit}>
             <div className="create-question">
-            <h5>Create Question</h5>
+            <h2>Create Question</h2>
                 <div>
                 <label>Question Title:</label>
                 <div className="create-input">

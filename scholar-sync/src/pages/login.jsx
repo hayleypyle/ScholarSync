@@ -3,9 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import './css/login.css'
 import axios from 'axios'
 import { useAuth } from '../js/AuthContext'
-import image from '../images/image1.jpg'
-
-
 
 
 export default function Login() {

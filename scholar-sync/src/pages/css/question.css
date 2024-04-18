@@ -38,10 +38,10 @@
     background-color: #eee; /* Color of the scrollbar track */
 }
 
-
 .question-detail{
     padding:5%;
-}
+    height:90vh;
+} 
 
 .question-title{
     color:#375170;
@@ -92,11 +92,16 @@
 
 }
 
-.question-display{
+.question-display, .topic-display{
     background-color:#FBFAFB;
     color:#042348;
     height:95%;
     margin:10px 15px 0 15px;
+    border-radius:7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.topic-display{
     padding: 20px 0 0 20px;
 }
 

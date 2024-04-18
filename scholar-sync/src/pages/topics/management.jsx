@@ -33,7 +33,7 @@ return (
 
             <div className="col-lg-9">
         
-                <div className="question-display">
+                <div className="topic-display">
                 <h2>Classroom Management</h2>
                 <Link to="/create/3"><button className="question-btn">New Question</button></Link>
                 

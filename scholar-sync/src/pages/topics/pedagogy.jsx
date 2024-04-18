@@ -32,7 +32,7 @@ return (
             </div>
 
             <div className="col-lg-9">
-    <div className="question-display">
+    <div className="topic-display">
     <h2>Pedagogy</h2>
     <Link to="/create/4"><button className="question-btn">New Question</button></Link>
     

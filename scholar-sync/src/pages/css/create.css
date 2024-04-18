@@ -5,11 +5,13 @@
     justify-content:space-between;
     align-items: left;
     background-color:#FBFAFB;
-    color:black;
+    color:#042348;
     width:96%;
     height:95%;
     margin:10px 15px 0 15px;
     padding: 20px 0 0 20px;
+    border-radius:7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .create-input,.end-container{
@@ -48,6 +50,7 @@ textarea{
     flex-direction:column;
     justify-content:center;
     align-items: center;
+    color:#042348;
 
 
 }

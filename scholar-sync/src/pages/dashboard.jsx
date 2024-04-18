@@ -33,8 +33,8 @@ export default function Dashboard() {
         <div className="welcome">
         <h2>Welcome to Scholar Sync!</h2>
         <h5> Scholar Sync is a space where educators can seek out the advice and 
-            expertise of other teachers</h5>
-        <h6>Select a topic to get started</h6>
+            expertise of other teachers.</h5>
+        <h6>Select a topic to get started!</h6>
         <img src={image} className="image"></img>
         </div>
         <div className="icon-container">
