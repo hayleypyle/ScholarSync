@@ -6,9 +6,9 @@
     align-items: left;
     background-color:#FBFAFB;
     color:black;
-    width:95%;
+    width:96%;
     height:95%;
-    margin:10px 15px 15px 30px;
+    margin:10px 15px 0 15px;
     padding: 20px 0 0 20px;
 }
 
@@ -23,6 +23,15 @@
     border-radius:5px;
     border:1px solid #8895A6;
 
+}
+
+input[type="text"], textarea{
+    padding-left:5px;
+
+}
+
+textarea{
+    padding-top:5px;
 }
 
 .textarea{
