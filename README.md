@@ -9,8 +9,7 @@ This is an app that acts as a question forum for teachers.
 - Upon successful login the user can use the left navigation bar to select a topic to browse, and in the topic they can create a new question, view already existing questions, and select a question to view answers to. 
 - When the user selects a question to view they can answer the question themselves and view the existing answers to the question. 
 - The user can logout with a button in the top navigation bar. 
-
--Future Improvements to this app would be:
+- Future Improvements to this app would be:
     - Ability to change password.
     - Ability to delete account.
     - Ability to edit your own questions and answers shortly after posting them. 
