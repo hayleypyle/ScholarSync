@@ -53,7 +53,8 @@ export default function Create() {
             return
 
         }
-        if (!values.title.endsWith('?')){
+        const trimmedTitle = values.title.trim();
+        if (!trimmedTitle.endsWith('?')){
             setError("Title must be a question ending with a question mark.");
             return
 
