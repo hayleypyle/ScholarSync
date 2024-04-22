@@ -25,5 +25,6 @@ This is an app that acts as a question forum for teachers.
     - npm run dev
 
 
+https://hayleypyle-scholarsync.netlify.app/
 
 
