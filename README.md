@@ -16,7 +16,7 @@ This is an app that acts as a question forum for teachers.
     - Ability to search questions and answers.
 
 # How to use
-- Register an account and log in to it on the website https://scholarsync.hayleypyle.com/. Create and answer questions as you like!
+- Register an account and log in to it on the website https://www.scholarsync.hayleypyle.com/. Create and answer questions as you like!
 or
 - Download zip file and use terminal to cd to the backend directory
     - npm install mysql express cors nodemon axios argon2
